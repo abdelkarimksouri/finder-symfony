@@ -1,0 +1,19 @@
+#config/packages/nelmio_api_doc.yaml
+nelmio_api_doc:
+    documentation:
+        schemes: [http, https]
+        info:
+            title: ChatFinder REST API
+            description: API VERSION 1.0.0
+            version: 1.0.0
+        securityDefinitions:
+            Bearer:
+                type: apiKey
+                description: 'Authorization: Bearer {jwt}'
+                name: Authorization
+                in: header
+        security:
+            - Bearer: []
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
